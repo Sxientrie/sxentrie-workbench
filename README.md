@@ -27,7 +27,7 @@ To get the project up and running on your local machine, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/Sxientrie/sxentrie-workbench.git](https://github.com/Sxientrie/sxentrie-workbench.git)
+    git clone https://github.com/Sxientrie/sxentrie-workbench.git
     cd sxentrie-workbench
     ```
 
