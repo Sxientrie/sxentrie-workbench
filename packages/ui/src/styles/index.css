@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  :root {
+    /* Color Palette */
+    --background: oklch(0.98 0.01 240);
+    --foreground: oklch(0.1 0.01 240);
+    --primary: oklch(0.6 0.2 260);
+
+    /* Spacing (8px grid) */
+    --spacing-2: 0.5rem; /* 8px */
+    --spacing-4: 1rem; /* 16px */
+    --spacing-6: 1.5rem; /* 24px */
+    --spacing-8: 2rem; /* 32px */
+  }
+}
+
+.dark {
+  --background: oklch(0.1 0.01 240);
+  --foreground: oklch(0.98 0.01 240);
+  --primary: oklch(0.7 0.2 260);
+}
