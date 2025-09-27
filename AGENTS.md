@@ -101,11 +101,11 @@ These five pillars are the foundation of the Subtle Depth philosophy. They guide
 
 The technology stack is modern, standard, and contains no surprises. It is a standard React 19 setup with Vite.
 
-*   **React 19:** The UI framework. Uses Server Components and the `use` hook.
+*   **React:** The UI framework. Uses Server Components and the `use` hook.
 *   **Vite:** Build tooling. It's fast.
 *   **TypeScript:** For type safety. This is non-negotiable.
-*   **Tailwind CSS 4:** Utility-first CSS for styling.
-*   **Framer Motion:** Used sparingly for animations.
+*   **Tailwind CSS:** Utility-first CSS for styling.
+*   **Motion:** Used sparingly for animations.
 *   **Lucide React:** For icons.
 *   **`clsx`, `tailwind-merge`:** For class name management. See `lib/utils.ts`.
 *   **`react-markdown`:** Renders Markdown content.

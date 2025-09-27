@@ -1,0 +1,29 @@
+{
+  "name": "@sxentrie/ui",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./utils": "./src/lib/utils.ts",
+    "./styles/index.css": "./src/styles/index.css"
+  },
+  "scripts": {
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "peerDependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@sxentrie/config-typescript": "workspace:*",
+    "@types/react": "^19.1.14",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.1"
+  }
+}

@@ -19,7 +19,6 @@ This project is built with a modern, performance-oriented technology stack:
 -   [Tailwind CSS 4](https://tailwindcss.com/)
 -   [Storybook](https://storybook.js.org/)
 -   [Turborepo](https://turbo.build/repo)
--   [pnpm](https://pnpm.io/)
 
 ## Getting Started
 
@@ -31,38 +30,17 @@ To get the project up and running on your local machine, follow these steps:
     cd sxentrie-workbench
     ```
 
-2.  **Install pnpm:**
-    If you don't have pnpm installed globally, you'll need to install it first.
-    ```bash
-    npm install -g pnpm
-    ```
-
-3.  **Configure the workspace:**
-    This project uses pnpm workspaces. Create a `pnpm-workspace.yaml` file in the root of the project with the following content to define the workspace structure:
-    ```yaml
-    packages:
-      - 'apps/*'
-      - 'packages/*'
-    ```
-
-4.  **Install dependencies:**
-    This command will install dependencies and link all the local packages and applications together.
+2.  **Install dependencies:**
+    This project uses `pnpm` as its package manager. The install command will link all the local packages and applications together.
     ```bash
     pnpm install
     ```
 
-5.  **Run the development servers:**
+3.  **Run the development servers:**
     This command uses Turborepo to start the development servers for all applications (`portfolio` and `docs`) simultaneously.
     ```bash
-    pnpm run dev
+    pnpm dev
     ```
     -   The portfolio app will be available at `http://localhost:5173` (or the next available port).
     -   The Storybook docs will be available at `http://localhost:6006`.
 
-## Available Scripts
-
-The following scripts can be run from the root of the repository:
-
--   `pnpm run dev`: Starts the development servers for all applications.
--   `pnpm run build`: Builds all packages and applications for production.
--   `pnpm run lint`: Lints all the code in the monorepo.

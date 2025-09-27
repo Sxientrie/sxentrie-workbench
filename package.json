@@ -1,0 +1,18 @@
+{
+  "name": "sxentrie-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Monorepo for sxentrie-workbench",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "storybook": "pnpm --filter docs storybook",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.8"
+  },
+  "packageManager": "pnpm@9.5.0"
+}
