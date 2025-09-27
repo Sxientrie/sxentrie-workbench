@@ -486,35 +486,60 @@ This section defines the standards for styling and theming within the component 
 
 By combining modern CSS features, we can build components that are significantly more resilient, modular, and performant. The old paradigm often required JavaScript to achieve this dynamism: a `ResizeObserver` would measure a container's width and trigger a state update to apply different classes, or a prop like `hasImage` would be passed down to toggle styles. The new paradigm moves this logic entirely into the CSS layer. A component that uses container queries to adapt its layout and `:has()` to adapt to its content is "self-aware." Its styling logic is encapsulated and declarative, processed efficiently by the browser's rendering engine, and requires zero client-side JavaScript execution. This represents a fundamental reduction in the complexity and performance overhead of creating dynamic user interfaces.
 
-#### 7.1. A Modern Styling Engine: Leveraging Tailwind CSS 4
+#### 7.1. A Modern Styling Engine: Leveraging Tailwind CSS
 
 A consistent and scalable styling approach is critical to the success of a component library. A utility-first methodology provides the best balance of constraint, flexibility, and performance.
 
-**Guideline: All component styling MUST be implemented using Tailwind CSS 4.**
+**Guideline: All component styling MUST be implemented using Tailwind CSS.**
 
-Tailwind CSS 4 provides a comprehensive set of utility classes that map directly to design tokens, ensuring visual consistency and eliminating the need for authoring custom CSS for most styling requirements. Its high-performance engine and modern architecture make it the definitive choice for our styling foundation.
+Tailwind CSS provides a comprehensive set of utility classes that map directly to design tokens, ensuring visual consistency and eliminating the need for authoring custom CSS for most styling requirements. Its high-performance engine and modern architecture make it the definitive choice for our styling foundation.
 
-*   **CSS-First Configuration**
-    A major shift in Tailwind CSS 4 is the move away from JavaScript-based configuration to a CSS-first approach.
+*   **CSS-Driven Theming**
+    Our theming strategy is "CSS-first," meaning the single source of truth for all design token *values* (colors, spacing, radii, etc.) is our global CSS file. This ensures that the theme is defined using standard web platform features and is decoupled from the build tooling.
 
-    **Guideline: The library's design tokens (colors, spacing, typography, etc.) MUST be configured directly in the primary CSS entry file (`src/styles/index.css`) using the `@theme` directive.**
+    **Guideline: The library's design tokens MUST be defined as CSS Custom Properties (variables) in the primary CSS entry file (`src/styles/index.css`).**
 
-    The `tailwind.config.js` file is no longer the primary method for theme customization. The `@theme` directive allows design tokens to be defined as CSS Custom Properties within special namespaces (e.g., `--color-*`, `--spacing-*`, `--font-*`). This co-locates the theme definition with the CSS itself, creating a single source of truth and simplifying the project setup.
+    The `tailwind.config.js` file then references these CSS variables to make them available to Tailwind's utility classes. This creates a clear separation of concerns: CSS holds the actual theme values, and the JavaScript configuration simply maps those values to Tailwind's class generation engine. This approach provides a robust and scalable theming architecture while working reliably across different build environments.
+
+    **Example:**
 
     ```css
     /* src/styles/index.css */
-    @import "tailwindcss";
-
-    @theme {
-      /* Define a custom color */
-      --color-brand-500: oklch(0.6 0.2 260);
-
-      /* Override a default spacing value */
-      --spacing-1: 0.25rem; /* Default is 0.25rem, can be changed */
-
-      /* Add a new font family */
-      --font-display: "Satoshi", sans-serif;
+    :root {
+      --radius: 0.625rem;
+      --background: oklch(1 0 0);
+      --foreground: oklch(0.145 0 0);
+      /* ... all other color and theme variables */
     }
+
+    .dark {
+      --background: oklch(0.18 0 0);
+      --foreground: oklch(0.985 0 0);
+      /* ... all dark theme overrides */
+    }
+    ```
+
+    ```javascript
+    // tailwind.config.js
+    /** @type {import('tailwindcss').Config} */
+    export default {
+      // ...
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            // ... mapping all other colors
+          },
+          borderRadius: {
+            lg: `var(--radius)`,
+            md: `calc(var(--radius) - 2px)`,
+            // ... mapping other radii
+          },
+        },
+      },
+      // ...
+    };
     ```
 
 *   **Harnessing the OKLCH Color Space**
