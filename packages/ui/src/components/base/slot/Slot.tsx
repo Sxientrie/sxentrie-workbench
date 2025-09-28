@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, forwardRef, isValidElement } from 'react';
+import React, { Children, cloneElement, forwardRef } from 'react';
 import { cn } from "../../../lib/utils";
 
 interface SlotProps extends React.HTMLAttributes<HTMLElement> {

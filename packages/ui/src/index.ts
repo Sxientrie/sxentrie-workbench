@@ -1,5 +1,5 @@
 export * from './components/base/button';
-export * from './components/base/card';
+export { Card, CardHeader, CardTitle, CardDescription, CardContent } from './components/base/card';
 export * from './components/base/icons';
 export * from './components/base/input';
 export * from './components/base/label';

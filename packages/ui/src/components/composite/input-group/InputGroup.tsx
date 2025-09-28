@@ -1,5 +1,6 @@
 import React from 'react';
-import { Input, InputProps } from '../../base/input';
+import { Input } from '../../base/input';
+import type { InputProps } from '../../base/input';
 import { Label } from '../../base/label';
 import { cn } from '../../../lib/utils';
 

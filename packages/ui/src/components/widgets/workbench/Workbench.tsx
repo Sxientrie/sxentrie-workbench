@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from '../../base/button';
-import { Input } from '../../base/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../base/card';
 import { InputGroup } from '../../composite/input-group';
 import { ComponentShowcase } from '../component-showcase';
